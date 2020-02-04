@@ -7,31 +7,33 @@ Examples: spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw"
 spinWords( "This is a test") => returns "This is a test"
 spinWords( "This is another test" )=> returns "This is rehtona test"
  */
-let spaceChar = " ";
 
 function spinWords(str) {
-  let iteratorArr = str.split(" ");
-  let finishedString = "";
-  let arrLength = null;
+  let iteratorArr = str.split(" "); // создаёт массив из строки, каждый элемент - отдельное слово
+  let finishedString = ""; // финальное состояние, которое выводит функция
+  let arrLength = iteratorArr.length; // вычисляет сколько элементов в массиве
+  let spaceChar = " ";
 
-  for (let i = 0; i < iteratorArr.length; i++) {
+  for (let i = 0; i < arrLength; i++) {
+    // цикл, кол-во итераций равно длине массива
     if (iteratorArr[i].length >= 5) {
+      // если длина слова больше 5-ти - переворачиваем его
       let spinningWord = iteratorArr[i]
         .split("")
         .reverse()
-        .join("");
+        .join(""); // создаёт массив из слова, каждый элемент - отдельная буква, затем переворачивает и создаёт слово из массива
 
-      if (i === iteratorArr.length - 1) {
-        finishedString += spinningWord;
-      } else {
-        finishedString += spinningWord + spaceChar;
-      }
+      i === arrLength - 1
+        ? (finishedString += spinningWord)
+        : (finishedString += spinningWord + spaceChar);
+      //проверяет последнее ли слово в массиве и нажен ли пробел + записывает всё в финальную строку
     } else {
-      if (i === iteratorArr.length - 1) {
-        finishedString += iteratorArr[i];
-      } else {
-        finishedString += iteratorArr[i] + spaceChar;
-      }
+      // если длина слова меньше 5-ти - не переворачиваем его
+
+      i === arrLength - 1
+        ? (finishedString += iteratorArr[i])
+        : (finishedString += iteratorArr[i] + spaceChar);
+      // проверяет последнее ли слово в массиве и нажен ли пробел + записывает всё в финальную строку
     }
   }
   console.log(finishedString);
