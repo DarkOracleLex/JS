@@ -96,7 +96,7 @@ function solution(number) {
 
 console.log(solution(2576)); // MMDLXXVI
 
-//  Правильное решение
+//Решение с CodeWars
 
 /* function solution(number) {
   // convert the number to a roman numeral

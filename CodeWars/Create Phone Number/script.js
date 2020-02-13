@@ -24,7 +24,7 @@ function createPhoneNumber(arr) {
 
 console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 
-/* Правильное решение 
+/* Решение с CodeWars
 function createPhoneNumber(numbers) {
   numbers = numbers.join("");
   return (

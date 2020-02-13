@@ -25,7 +25,8 @@ function maskify(str) {
 
 console.log(maskify("123456789"));
 
-/* Правильное решение:
-function maskify(cc) {
+//Решение с CodeWars
+
+/* function maskify(cc) {
   return cc.slice(0, -4).replace(/./g, "#") + cc.slice(-4);
 } */
