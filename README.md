@@ -1,3 +1,3 @@
-# JavaScript-studying
+# JS
 
 Набор и решение разных задачек по JS.
