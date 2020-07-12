@@ -64,3 +64,73 @@ function guessTheNumber(num) {
 }
 
 console.log(guessTheNumber(11));
+
+// 5. Создать функцию, которая принимает число n и возвращает массив,
+// заполненный числами от 1 до n: getArray(10); // [1,2,3,4,5,6,7,8,9,10]
+// Данное задание выполните после того как познакомитесь с методами массивов.
+
+function getArrFilledNumbers(num) {
+  let arr = [];
+  let i = 1;
+  while (i <= num) {
+    arr.push(i);
+    i++;
+  }
+  return arr;
+}
+
+console.log(getArrFilledNumbers(12));
+
+// 6. Создать функцию, которая принимает массив,
+// а возвращает новый массив с дублированными элементами входного массива.
+// Данное задание выполните после того как познакомитесь с методами массивов:
+// doubleArray([1,2,3]) // [1,2,3,1,2,3]
+
+function doubleArray(arr) {
+  return arr.concat(arr);
+}
+
+console.log(doubleArray([1, 2, 3]));
+
+// 7. Создать функцию, которая принимает произвольное (любое) число массивов
+// и удаляет из каждого массива первый элемент, а возвращает массив из оставшихся значений.
+// Данное задание выполните после того как познакомитесь с методами массивов:
+// changeCollection([1,2,3], [‘a’, ’b’, ‘c’]) → [ [2,3], [‘b’, ‘c’] ], changeCollection([1,2,3]) → [ [2,3] ] и т.д.
+
+function changeCollection() {
+  let resultArr = [];
+  for (let i = 0; i < arguments.length; i++) {
+    arguments[i].splice(0, 1);
+    resultArr[i] = arguments[i];
+  }
+
+  return resultArr;
+}
+
+console.log(changeCollection([1, 2, 3], ["a", "b", "c"]));
+
+// 8. Создать функцию которая принимает массив пользователей,
+// поле на которое хочу проверить и значение на которое хочу проверять.
+// Проверять что все аргументы переданы. Возвращать новый массив с пользователями соответствующие указанным параметрам.
+// Данное задание выполните после того как познакомитесь с методами массивов
+
+// funcGetUsers(users, “gender”, “male”);
+// [ {name: “Denis”, age: “29”, gender: “male”} , {name: “Ivan”, age: “20”, gender: “male”} ]
+
+function getUsers(arr, key, checkValue) {
+  let resultArr = [];
+  arr.map(function (currentValue, index) {
+    if (arr[index][key] === checkValue) {
+      resultArr.push(arr[index]);
+    }
+  });
+  return resultArr;
+}
+
+let arr = [
+  { name: "Denis", age: "29", gender: "male" },
+  { name: "Ivan", age: "20", gender: "male" },
+  { name: "Olga", age: "13", gender: "female" },
+];
+
+console.log(getUsers(arr, "gender", "male"));
