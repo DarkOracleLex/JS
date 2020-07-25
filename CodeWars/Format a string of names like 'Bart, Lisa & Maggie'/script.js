@@ -22,8 +22,25 @@ Note: all the hashes are pre-validated
 and will only contain A-Z, a-z, '-' and '.'. */
 
 function list(names) {
-  if (names.length === 0) {
-    return [];
-  } else {
-  }
+  return names.reduce((acc, curVal, i, arr) => {
+    if (i === 0) {
+      acc += curVal.name;
+    } else if (i === arr.length - 1) {
+      acc += " & " + curVal.name;
+    } else {
+      acc += ", " + curVal.name;
+    }
+    return acc;
+  }, "");
 }
+
+console.log(list([]));
+console.log(list([{ name: "Bart" }]));
+console.log(list([{ name: "Bart" }, { name: "Lisa" }]));
+console.log(
+  list([
+    { name: "Bart" },
+    { name: "Lisa" },
+    { name: "Maggie" },
+  ])
+);
