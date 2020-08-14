@@ -1,5 +1,3 @@
-"use strict";
-
 /* 1.Создайте функцию которая бы умела делать:
 minus(10)(6); // 4
 minus(5)(6); // -1
@@ -19,7 +17,8 @@ let minus = subtractInt;
 console.log(minus(10)(6));
 console.log(minus(5)(6));
 
-// 2.Реализовать функцию, которая умножает и умеет запоминать возвращаемый результат между вызовами:
+// 2.Реализовать функцию, которая умножает и
+// умеет запоминать возвращаемый результат между вызовами:
 
 function multiplyMaker(num1) {
   return (num2) => (num1 *= num2);
@@ -79,32 +78,55 @@ console.log(strModule.getInvertedStr());
 Также можно вызывать методы цепочкой:
 модуль.установитьЗначение(10).вСтепень(2).узнатьЗначение(); // 100 */
 
-let calculator = (function () {
-  let value = 0;
+// let calculator = (function () {
+//   let value = 0;
 
-  function setValue(val) {
-    value = val;
-    return this;
-  }
-  function sum(val) {
-    value += val;
-    return this;
-  }
-  function multiply(val) {
-    value *= val;
-    return this;
-  }
-  function logValue() {
-    console.log(value);
-    return this;
-  }
+//   function setValue(val) {
+//     value = val;
+//     return this;
+//   }
+//   function sum(val) {
+//     value += val;
+//     return this;
+//   }
+//   function multiply(val) {
+//     value *= val;
+//     return this;
+//   }
+//   function logValue() {
+//     console.log(value);
+//     return this;
+//   }
 
-  return { setValue, sum, multiply, logValue };
-})();
+//   return { setValue, sum, multiply, logValue };
+// })();
 
-calculator.setValue(10);
-calculator.sum(3);
-calculator.multiply(2);
-calculator.logValue();
+// calculator.setValue(10);
+// calculator.sum(3);
+// calculator.multiply(2);
+// calculator.logValue();
+
+// calculator.setValue(10).sum(3).multiply(2).logValue();
+
+let calculator = {
+  value: 0,
+
+  setValue(val) {
+    this.value = val;
+    return this;
+  },
+  sum(val) {
+    this.value += val;
+    return this;
+  },
+  multiply(val) {
+    this.value *= val;
+    return this;
+  },
+  logValue() {
+    console.log(this.value);
+    return this;
+  },
+};
 
 calculator.setValue(10).sum(3).multiply(2).logValue();
